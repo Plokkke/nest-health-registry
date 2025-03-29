@@ -17,6 +17,10 @@
     "terminus",
     "monitoring"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/plokkke/nest-health-registry"
+  },
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
