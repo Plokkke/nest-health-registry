@@ -1,10 +1,10 @@
 import { INestApplication, Module } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { HealthRegistryModule } from '@/HealthModule';
+import { HealthModule } from '@/HealthModule';
 
 @Module({
-  imports: [HealthRegistryModule],
+  imports: [HealthModule],
 })
 class AppModule {}
 
