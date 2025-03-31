@@ -70,11 +70,9 @@ describe('Health service tests suite', () => {
       expect(service['_livenessChecks']).not.toHaveProperty('test');
     });
 
-    it('should throw an error if the check does not exist', async () => {
-      const error = await getError(() => service.removeLivenessCheck('test'));
-      expect(error).toBeInstanceOf(Error);
-      const err = error as Error;
-      expect(err.message).toBe('Liveness check with key "test" does not exist');
+    it('should do nothing if the check does not exist', async () => {
+      await service.removeLivenessCheck('test');
+      expect(service['_livenessChecks']).not.toHaveProperty('test');
     });
   });
 
@@ -85,11 +83,9 @@ describe('Health service tests suite', () => {
       expect(service['_readinessChecks']).not.toHaveProperty('test');
     });
 
-    it('should throw an error if the check does not exist', async () => {
-      const error = await getError(() => service.removeReadinessCheck('test'));
-      expect(error).toBeInstanceOf(Error);
-      const err = error as Error;
-      expect(err.message).toBe('Readiness check with key "test" does not exist');
+    it('should do nothing if the check does not exist', async () => {
+      await service.removeReadinessCheck('test');
+      expect(service['_readinessChecks']).not.toHaveProperty('test');
     });
   });
 

@@ -10,7 +10,9 @@ export class HealthController {
   @Get('/startup')
   @HttpCode(HttpStatus.NO_CONTENT)
   @HealthCheck()
-  async checkStartup(): Promise<void> {}
+  checkStartup(): null {
+    return null;
+  }
 
   @Get('/liveness')
   @HealthCheck()

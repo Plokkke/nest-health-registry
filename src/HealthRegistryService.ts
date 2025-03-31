@@ -37,7 +37,7 @@ export class HealthRegistryService {
     });
   }
 
-  async checkLiveness(): Promise<HealthCheckResult> {
+  checkLiveness(): Promise<HealthCheckResult> {
     return this.health.check(this.livenessChecks);
   }
 
@@ -60,16 +60,10 @@ export class HealthRegistryService {
   }
 
   removeLivenessCheck(key: string): void {
-    if (!(key in this._livenessChecks)) {
-      throw new Error(`Liveness check with key "${key}" does not exist`);
-    }
     delete this._livenessChecks[key];
   }
 
   removeReadinessCheck(key: string): void {
-    if (!(key in this._readinessChecks)) {
-      throw new Error(`Readiness check with key "${key}" does not exist`);
-    }
     delete this._readinessChecks[key];
   }
 }

@@ -22,7 +22,7 @@
     "url": "https://github.com/plokkke/nest-health-registry"
   },
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.json",
+    "build": "rimraf dist && tsc && tsc-alias",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "npm run build",
@@ -36,6 +36,10 @@
     "merge-cov": "npx istanbul-merge --out ./reports/tests/unified/coverage/coverage-final.json ./reports/tests/e2e/coverage/coverage-final.json ./reports/tests/unit/coverage/coverage-final.json; npx istanbul report --include ./reports/tests/unified/coverage/coverage-final.json --dir reports/tests/unified/coverage/lcov-report html",
     "validate": "npm run lint && npm run build && npm run test:cov",
     "prepublishOnly": "npm run validate"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.0.12",
+    "@nestjs/terminus": "^11.0.0"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.12",
@@ -61,6 +65,7 @@
     "rimraf": "^5.0.0",
     "supertest": "^7.1.0",
     "ts-jest": "^29.3.0",
+    "tsc-alias": "^1.8.11",
     "typescript": "^5.8.2"
   }
 }
